@@ -141,12 +141,7 @@ h2:hover {
 }
 
 /* Estilos para los títulos de los libros */
-.book-title {
-    font-size: 18px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    color: #333; /* Color de texto */
-    /* Otros estilos que desees agregar */
-}
+
 
 /* Establecer la transición de opacidad para las portadas */
 .book-cover { 
@@ -155,6 +150,10 @@ h2:hover {
     transition: opacity 0.3s ease-in-out;
 }
 
+
+
+/* Cambiar el tamaño y la rotación al pasar el mouse */
 .book-cover:hover {
     transform: scale(1.1) rotate(5deg);
-}
+}  
+
