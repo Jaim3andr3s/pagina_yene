@@ -60,7 +60,24 @@
 
         .btn:hover {
             background-color: #555;
+        } 
+
+        #character {
+            width: 100px;
+            height: 100px;
+            background-color: #FF5733;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
         }
+
+        #character:hover {
+            background-color: #FFA07A;
+
+        } 
+
     </style>
 </head>
 <body>
@@ -93,6 +110,29 @@
             // Mostrar una alerta con el nombre del libro seleccionado
             alert("Reseña del libro: " + libro);
         }
-    </script>
+    </script> 
+
+<div id="character"></div>
+
+<script>
+    const character = document.getElementById('character');
+
+    // Función para mover el personaje hacia la izquierda
+    function moveLeft() {
+        character.style.transform = 'translateX(-10px)';
+    }
+
+    // Función para mover el personaje hacia la derecha
+    function moveRight() {
+        character.style.transform = 'translateX(10px)';
+    }
+
+    // Agregar eventos de clic para mover el personaje
+    character.addEventListener('click', moveLeft);
+    character.addEventListener('contextmenu', function (event) {
+        event.preventDefault(); // Evita el menú contextual al hacer clic derecho
+        moveRight();
+    });
+</script>
 </body>
 </html>
