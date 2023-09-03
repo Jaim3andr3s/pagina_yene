@@ -10,6 +10,7 @@
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            transition: background-color 0.5s ease; /* Transición suave para el cambio de color de fondo */
         }
 
         header {
@@ -73,6 +74,15 @@
             left: 50%;
             transform: translateX(-50%);
             cursor: pointer;
+            transition: transform 0.2s ease; /* Transición suave para el movimiento del personaje */
+        }
+
+        /* Estilo adicional para un aspecto moderno */
+        .modern-style {
+            border: 2px solid #333;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
@@ -139,10 +149,8 @@
         body.addEventListener('click', () => {
             isBackgroundDark = !isBackgroundDark;
             body.style.backgroundColor = isBackgroundDark ? '#333' : '#f4f4f4';
-        }); 
-
-    
-    </script> 
+        });
+    </script>
 
     <script>
         let clickCount = 0;
@@ -151,34 +159,16 @@
             clickCount++;
             alert("Reseña del libro: " + libro + "\nNúmero de clics en reseña: " + clickCount);
         }
-    </script> 
-
-    <script>
-    function mostrarMensajePersonalizado() {
-            const nombre = prompt("Por favor, ingresa tu nombre:");
-            if (nombre) {
-            alert("Hola, " + nombre + "! Bienvenido a nuestra biblioteca didáctica.");
-            }
-    }
     </script>
 
     <script>
-        const images = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg"];
-        let currentImageIndex = 0;
-
-        function showNextImage() {
-            currentImageIndex = (currentImageIndex + 1) % images.length;
-            const imageElement = document.getElementById("gallery-image");
-            imageElement.src = images[currentImageIndex];
+        function mostrarMensajePersonalizado() {
+            const nombre = prompt("Por favor, ingresa tu nombre:");
+            if (nombre) {
+                alert("Hola, " + nombre + "! Bienvenido a nuestra biblioteca didáctica.");
+            }
         }
-
-        function showPreviousImage() {
-            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-            const imageElement = document.getElementById("gallery-image");
-            imageElement.src = images[currentImageIndex];
-        }
-</script>
-
+    </script>
 
 </body>
 </html>
