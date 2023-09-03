@@ -1,0 +1,126 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #141414; /* Fondo oscuro */
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Estilos de la selección de perfil */
+.profile-selection {
+    text-align: center;
+    margin-top: 100px; /* Espacio para la selección de perfil */
+}
+
+.profile {
+    margin: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.profile img:hover {
+    border-color: #ff0000; /* Color del borde al pasar el mouse */
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Cambiar el color de fondo a gris claro */
+    color: #333; /* Cambiar el color del texto a negro */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #ff0000; /* Cambiar el color del encabezado a rojo */
+}
+
+/* Estilos de la selección de perfil */
+.profile-selection {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.profile {
+    margin: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.profile img:hover {
+    border-color: #ff0000;
+}
+
+.profile-btn {
+    background-color: transparent;
+    border: none;
+    color: #ff0000;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.profile-btn:hover {
+    color: #333;
+}
+
+/* Estilos de la biblioteca (puedes personalizar según tus necesidades) */
+.library {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#bookList {
+    list-style: none;
+    padding: 0;
+}
+
+#bookList li {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Estilos del footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Cambiar el color de fondo del footer a gris oscuro */
+    color: #fff; /* Cambiar el color del texto del footer a blanco */
+}
