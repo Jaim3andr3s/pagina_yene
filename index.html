@@ -61,6 +61,19 @@
         .btn:hover {
             background-color: #555;
         }
+
+        /* Estilos para el personaje */
+        #character {
+            width: 100px;
+            height: 100px;
+            background-image: url('https://cdn.fbsbx.com/v/t59.2708-21/373182518_4898564133601125_5537548002501414547_n.ico/personaje.ico?_nc_cat=100&ccb=1-7&_nc_sid=0cab14&_nc_eui2=AeG0NTujviZGvo7RRYnQnyVFMlYai7X88wsyVhqLtfzzCzyeJ-r49hbAvD4D34r1sttOqduwofAwTX8qwbIgPG2J&_nc_ohc=vZXHl34GosoAX8VWbOG&_nc_ht=cdn.fbsbx.com&oh=03_AdRiFoxEiN-qBGQu30P-_gZAey5WCwIm4wS5z4mFTcBGpg&oe=64F628DB&dl=1');
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -88,9 +101,9 @@
         </div>
     </div>
 
-    <!-- Definición del personaje y eventos de JavaScript -->
+    <!-- Personaje interactivo -->
     <div id="character"></div>
-    <img src="C:\Users\pc\Downloads\personaje.ico" alt="Personaje de la biblioteca" id="character">
+
     <script>
         const character = document.getElementById('character');
 
@@ -112,12 +125,60 @@
         });
     </script>
 
-    <!-- JavaScript adicional aquí, si es necesario -->
     <script>
+        // Función para mostrar una alerta con la reseña del libro
         function mostrarResena(libro) {
-            // Mostrar una alerta con el nombre del libro seleccionado
             alert("Reseña del libro: " + libro);
         }
     </script>
+
+    <script>
+        const body = document.body;
+        let isBackgroundDark = false;
+
+        body.addEventListener('click', () => {
+            isBackgroundDark = !isBackgroundDark;
+            body.style.backgroundColor = isBackgroundDark ? '#333' : '#f4f4f4';
+        }); 
+
+    
+    </script> 
+
+    <script>
+        let clickCount = 0;
+
+        function mostrarResena(libro) {
+            clickCount++;
+            alert("Reseña del libro: " + libro + "\nNúmero de clics en reseña: " + clickCount);
+        }
+    </script> 
+
+    <script>
+    function mostrarMensajePersonalizado() {
+            const nombre = prompt("Por favor, ingresa tu nombre:");
+            if (nombre) {
+            alert("Hola, " + nombre + "! Bienvenido a nuestra biblioteca didáctica.");
+            }
+    }
+    </script>
+
+    <script>
+        const images = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg"];
+        let currentImageIndex = 0;
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            const imageElement = document.getElementById("gallery-image");
+            imageElement.src = images[currentImageIndex];
+        }
+
+        function showPreviousImage() {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            const imageElement = document.getElementById("gallery-image");
+            imageElement.src = images[currentImageIndex];
+        }
+</script>
+
+
 </body>
 </html>
