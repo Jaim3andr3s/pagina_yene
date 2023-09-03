@@ -88,36 +88,36 @@
         </div>
     </div>
 
+    <!-- Definición del personaje y eventos de JavaScript -->
+    <div id="character"></div>
+    <img src="C:\Users\pc\Downloads\personaje.ico" alt="Personaje de la biblioteca" id="character">
+    <script>
+        const character = document.getElementById('character');
 
+        // Función para mover el personaje hacia la izquierda
+        function moveLeft() {
+            character.style.transform = 'translateX(-10px)';
+        }
+
+        // Función para mover el personaje hacia la derecha
+        function moveRight() {
+            character.style.transform = 'translateX(10px)';
+        }
+
+        // Agregar eventos de clic para mover el personaje
+        character.addEventListener('click', moveLeft);
+        character.addEventListener('contextmenu', function (event) {
+            event.preventDefault(); // Evita el menú contextual al hacer clic derecho
+            moveRight();
+        });
+    </script>
+
+    <!-- JavaScript adicional aquí, si es necesario -->
     <script>
         function mostrarResena(libro) {
             // Mostrar una alerta con el nombre del libro seleccionado
             alert("Reseña del libro: " + libro);
         }
-    </script>  
-
-        <div id="character"></div>
-        <img src="https://img.lovepik.com/free-png/20210926/lovepik-lively-girl-png-image_401424920_wh1200.png" alt="Personaje de la biblioteca" id="character">
-        <script>
-            const character = document.getElementById('character');
-    
-            // Función para mover el personaje hacia la izquierda
-            function moveLeft() {
-                character.style.transform = 'translateX(-10px)';
-            }
-    
-            // Función para mover el personaje hacia la derecha
-            function moveRight() {
-                character.style.transform = 'translateX(10px)';
-            }
-    
-            // Agregar eventos de clic para mover el personaje
-            character.addEventListener('click', moveLeft);
-            character.addEventListener('contextmenu', function (event) {
-                event.preventDefault(); // Evita el menú contextual al hacer clic derecho
-                moveRight();
-            });
-        </script>
-    
+    </script>
 </body>
 </html>
