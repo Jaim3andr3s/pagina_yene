@@ -72,20 +72,27 @@
             <h2>Libro 1</h2>
             <p>Este es el libro número 1 de nuestra biblioteca.</p>
             <img src="libro1.jpg" alt="Portada del Libro 1">
-            <button class="btn">Reseña</button>
+            <button class="btn" onclick="mostrarResena('Libro 1')">Reseña</button>
         </div>
         <div class="book">
             <h2>Libro 2</h2>
             <p>Este es el libro número 2 de nuestra biblioteca.</p>
             <img src="libro2.jpg" alt="Portada del Libro 2">
-            <button class="btn">Reseña</button>
+            <button class="btn" onclick="mostrarResena('Libro 2')">Reseña</button>
         </div>
         <div class="book">
             <h2>Libro 3</h2>
             <p>Este es el libro número 3 de nuestra biblioteca.</p>
             <img src="libro3.jpg" alt="Portada del Libro 3">
-            <button class="btn">Reseña</button>
+            <button class="btn" onclick="mostrarResena('Libro 3')">Reseña</button>
         </div>
     </div>
+
+    <script>
+        function mostrarResena(libro) {
+            // Mostrar una alerta con el nombre del libro seleccionado
+            alert("Reseña del libro: " + libro);
+        }
+    </script>
 </body>
 </html>
