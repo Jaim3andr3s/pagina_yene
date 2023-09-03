@@ -143,17 +143,16 @@ h2:hover {
 /* Estilos para los títulos de los libros */
 
 
-/* Establecer la transición de opacidad para las portadas */
+
+
 .book-cover { 
-    max-width: 150px; /* Ancho máximo de la portada */
-    height: auto;
-    transition: opacity 0.3s ease-in-out;
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
-
-
-/* Cambiar el tamaño y la rotación al pasar el mouse */
 .book-cover:hover {
-    transform: scale(1.1) rotate(5deg);
-}  
-
+    transform: translateY(-10px);
+}

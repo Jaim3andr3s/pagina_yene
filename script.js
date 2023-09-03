@@ -21,7 +21,7 @@ function agregarLibrosAlPerfil(perfil) {
             {
                 titulo: 'El hipo del tucan',
                 pdfUrl: 'https://drive.google.com/file/d/1cNmpawdm3rLUtuHxxHfMG64zARposf1G/view?usp=drive_link', // Reemplaza esto con la URL correcta
-                portadaUrl: 'https://mobbyt.com/media/gallery/44f11ea12f297cf0a9acfce336dca2f1/12c974f2_2021-06-07.png'
+                portadaUrl: 'https://scontent.fctg1-4.fna.fbcdn.net/v/t1.15752-9/372380907_341745174944819_2473986692249706920_n.png?_nc_cat=109&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeHRdIdWz_7mRLh5rQy-eZN0rvKjomRQQbuu8qOiZFBBuymzPDrg8Geb6t1OW3wr8qpPIYiZ7OXALORNCLayrFrn&_nc_ohc=0dfq-4aTs1oAX-r5W6T&_nc_ht=scontent.fctg1-4.fna&oh=03_AdRl4qQiB4U1sGo8VrL6x6KJheGpmQ6qH5Q9g8MIItKy3Q&oe=651C812F'
             },
             {
                 titulo: 'Libro 2',
@@ -32,18 +32,17 @@ function agregarLibrosAlPerfil(perfil) {
                 pdfUrl: 'https://example.com/ruta_al_archivo_pdf_del_libro3.pdf' // Reemplaza esto con la URL correcta
             }
         ];
-
+        
         librosPerfil1.forEach(libro => {
             const li = document.createElement('li');
             const a = document.createElement('a');
-            
+        
             // Agregar la imagen de la portada como enlace al PDF
             const img = document.createElement('img');
             img.src = libro.portadaUrl;
-            a.appendChild(img);
-            
-            // Configurar el evento mouseover para mostrar el texto
             img.classList.add('book-cover'); // Agrega la clase book-cover
+        
+            // Configurar el evento mouseover para mostrar el título del libro
             img.addEventListener('mouseover', () => {
                 // Crear un elemento de div para contener el título del libro
                 const titleContainer = document.createElement('div');
@@ -58,23 +57,23 @@ function agregarLibrosAlPerfil(perfil) {
                 // Agregar el elemento de texto al li
                 li.appendChild(titleContainer);
             });
-            
-            // Configurar el evento mouseout para ocultar el texto
+        
+            // Configurar el evento mouseout para ocultar el título del libro
             img.addEventListener('mouseout', () => {
                 const titleContainer = li.querySelector('.title-container');
                 if (titleContainer) {
                     li.removeChild(titleContainer); // Elimina el elemento de texto al quitar el mouse
                 }
             });
-            
+        
             a.href = libro.pdfUrl;
             a.target = '_blank'; // Abre el enlace en una nueva ventana/tabla
-            
+        
+            a.appendChild(img);
             li.appendChild(a);
             bookList.appendChild(li);
         });
-        
-        
+         
     } else if (perfil === 'perfil2') {
         const librosPerfil2 = [
             {
