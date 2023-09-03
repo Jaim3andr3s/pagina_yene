@@ -4,7 +4,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #141414; /* Fondo oscuro */
-    color: #fff;
+    color: #fff; 
+    
 }
 
 .container {
@@ -13,10 +14,100 @@ body {
     padding: 20px;
 }
 
+/* Estilo inicial del título */
+
 h1 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 4rem;
+    font-family: 'Tu-Fuente-Personalizada', sans-serif;
+    color: #00c3ff;
+    background-color: #f2f2f2;
+    padding: 20px;
+    transform: translateY(-20px) scale(0.7);
+    opacity: 0;
+    animation: bounceAndFade 5s ease infinite;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.5);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  h1:hover {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.8);
+  }
+
+/* Define la animación fadeInUp */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0; /* Empieza invisible */
+        transform: translateY(20px); /* Empieza 20px más abajo */
+    }
+    50% {
+        opacity: 0.7; /* Al 50% de la animación, hace que el título sea ligeramente visible */
+        transform: translateY(-10px); /* Hace que el título suba menos en el punto medio */
+    }
+    100% {
+        opacity: 1; /* Termina completamente visible */
+        transform: translateY(0); /* Termina en su posición original */
+    }
 }
+
+/* Cambia el color cuando el cursor está sobre el título */
+/* Estilo inicial del título */
+h1 {
+    text-align: center;
+    font-size: 1rem; /* Tamaño de fuente inicial pequeño */
+    font-family: 'Fuente Personalizada', sans-serif;
+    color: #080202f3;
+    transform: translateY(-20px); /* Aplica una transformación para mover el título hacia arriba */
+    opacity: 0; /* Hace que el título sea inicialmente invisible */
+    animation: fadeInUp 0.5s ease 0.3s forwards; /* Aplica la animación fadeInUp */
+}
+
+/* Define la animación fadeInUp */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0; /* Empieza invisible */
+        transform: translateY(20px) scale(0.7); /* Empieza 20px más abajo y 70% del tamaño original */
+    }
+    50% {
+        opacity: 0.7; /* Al 50% de la animación, hace que el título sea ligeramente visible */
+        transform: translateY(-10px) scale(0.9); /* Hace que el título suba menos en el punto medio y llegue al 90% del tamaño original */
+    }
+    100% {
+        opacity: 1; /* Termina completamente visible */
+        transform: translateY(0) scale(1); /* Termina en su posición original y tamaño original */
+    }
+}
+
+/* Estilo inicial del título */
+h1 {
+    text-align: center;
+    font-size: 4rem;
+    font-family: 'Tu-Fuente-Personalizada', sans-serif;
+    color: #00c3ff;
+    background-color: #f2f2f2;
+    padding: 20px;
+    transform: translateY(-20px) scale(0.7);
+    opacity: 0;
+    animation: bounceAndFade 5s ease infinite;
+    background-attachment: fixed; /* Agrega esta línea para hacer que el fondo quede fijo */
+}
+
+/* Define la animación bounceAndFade */
+@keyframes bounceAndFade {
+    0%, 100% {
+        opacity: 0; /* Empieza y termina invisible */
+        transform: translateY(20px) scale(0.7); /* Empieza 20px más abajo y 70% del tamaño original */
+    }
+    50% {
+        opacity: 1; /* Al 50% de la animación, hace que el título sea completamente visible */
+        transform: translateY(0) scale(1); /* Llega a su posición original y tamaño original */
+    }
+}
+
+
 
 /* Estilos de la selección de perfil */
 .profile-selection {
@@ -47,8 +138,11 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4; /* Cambiar el color de fondo a gris claro */
-    color: #333; /* Cambiar el color del texto a negro */
+    background-image: url(https://images.unsplash.com/photo-1507738978512-35798112892c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+    background-repeat: no-repeat;
+    background-size: 2000px 1200px; /* Ajusta el tamaño de la imagen a 800px de ancho y 600px de alto */
+    color: #333
+
 }
 
 .container {
@@ -57,10 +151,12 @@ body {
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    color: #ff0000; /* Cambiar el color del encabezado a rojo */
+
+.profile-content p {
+    font-family: 'Fuente Personalizada', sans-serif; /* Cambiar a la fuente deseada */
+    color: #FF0000; 
+    font-size: 1.5rem;/* Cambiar al color deseado (#FF0000 es rojo) */
+    /* Otros estilos que desees aplicar */
 }
 
 /* Estilos de la selección de perfil */
@@ -154,5 +250,5 @@ h2:hover {
 }
 
 .book-cover:hover {
-    transform: translateY(-10px);
+    transform: rotate(10deg);
 }
