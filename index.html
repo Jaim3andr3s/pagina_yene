@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca Didáctica</title>
+    <title>Biblioteca Mágica</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffc107;
             margin: 0;
             padding: 0;
-            transition: background-color 0.5s ease; /* Transición suave para el cambio de color de fondo */
+            transition: background-color 0.5s ease;
         }
 
         header {
@@ -22,30 +22,45 @@
 
         h1 {
             margin: 0;
+            font-family: 'Cursive', 'Lucida Handwriting', cursive;
+            font-size: 3rem;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-        }
-
-        .book {
+            position: relative;
             background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .featured-book {
+            background-color: #f9f9f9;
             border: 1px solid #ccc;
-            padding: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .featured-book:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-book h2 {
+            font-size: 1.5rem;
             margin: 10px 0;
+            font-family: 'Arial', sans-serif;
         }
 
-        .book h2 {
-            font-size: 1.2rem;
-        }
-
-        .book p {
+        .featured-book p {
             margin: 0;
         }
 
-        .book img {
+        .featured-book img {
             max-width: 100%;
             height: auto;
             margin-top: 10px;
@@ -57,6 +72,8 @@
             border: none;
             padding: 10px 20px;
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
         }
 
         .btn:hover {
@@ -65,110 +82,353 @@
 
         /* Estilos para el personaje */
         #character {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             background-image: url('https://cdn.fbsbx.com/v/t59.2708-21/373182518_4898564133601125_5537548002501414547_n.ico/personaje.ico?_nc_cat=100&ccb=1-7&_nc_sid=0cab14&_nc_eui2=AeG0NTujviZGvo7RRYnQnyVFMlYai7X88wsyVhqLtfzzCzyeJ-r49hbAvD4D34r1sttOqduwofAwTX8qwbIgPG2J&_nc_ohc=vZXHl34GosoAX8VWbOG&_nc_ht=cdn.fbsbx.com&oh=03_AdRiFoxEiN-qBGQu30P-_gZAey5WCwIm4wS5z4mFTcBGpg&oe=64F628DB&dl=1');
             background-size: cover;
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            top: 20px;
+            right: 20px;
             cursor: pointer;
-            transition: transform 0.2s ease; /* Transición suave para el movimiento del personaje */
+            transition: transform 0.2s ease, opacity 0.2s ease-in-out;
+            z-index: 2;
         }
 
         /* Estilo adicional para un aspecto moderno */
         .modern-style {
-            border: 2px solid #333;
+            border: 2px solid #0073e6;
             border-radius: 5px;
             padding: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn {
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: blueviolet;
+        }
+
+        /* Estilo para la galería de imágenes */
+        .image-gallery {
+            text-align: center;
+        }
+
+        .image-gallery img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* Estilo para el formulario */
+        .user-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Estilo para el resultado del formulario */
+        .user-message {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Estilo para los botones de reseñas */
+        .review-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+
+        .review-btn:hover {
+            background-color: #555;
+        }
+
+        /* Estilos para ocultar inicialmente las categorías y autores destacados */
+        .categories, .featured-authors {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* Estilo para los indicadores de puntos en la galería de imágenes */
+        .image-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .image-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: #555;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .image-indicator.active {
+            background-color: #333;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Biblioteca Didáctica</h1>
-    </header>
-    <div class="container">
-        <div class="book">
-            <h2>Libro 1</h2>
-            <p>Este es el libro número 1 de nuestra biblioteca.</p>
-            <img src="libro1.jpg" alt="Portada del Libro 1">
-            <button class="btn" onclick="mostrarResena('Libro 1')">Reseña</button>
-        </div>
-        <div class="book">
-            <h2>Libro 2</h2>
-            <p>Este es el libro número 2 de nuestra biblioteca.</p>
-            <img src="libro2.jpg" alt="Portada del Libro 2">
-            <button class="btn" onclick="mostrarResena('Libro 2')">Reseña</button>
-        </div>
-        <div class="book">
-            <h2>Libro 3</h2>
-            <p>Este es el libro número 3 de nuestra biblioteca.</p>
-            <img src="libro3.jpg" alt="Portada del Libro 3">
-            <button class="btn" onclick="mostrarResena('Libro 3')">Reseña</button>
+<header>
+    <h1>Biblioteca Mágica</h1>
+</header>
+<div class="container">
+    <!-- Libros destacados -->
+    <div class="featured-book">
+        <h2>Libro Destacado 1</h2>
+        <p>Este es el libro destacado número 1 de nuestra biblioteca.</p>
+        <img src="libro1.jpg" alt="Portada del Libro Destacado 1">
+        <button class="btn review-btn" onclick="mostrarResena('Libro Destacado 1')">Reseña</button>
+    </div>
+    <div class="featured-book">
+        <h2>Libro Destacado 2</h2>
+        <p>Este es el libro destacado número 2 de nuestra biblioteca.</p>
+        <img src="libro2.jpg" alt="Portada del Libro Destacado 2">
+        <button class="btn review-btn" onclick="mostrarResena('Libro Destacado 2')">Reseña</button>
+    </div>
+    <div class="featured-book">
+        <h2>Libro Destacado 3</h2>
+        <p>Este es el libro destacado número 3 de nuestra biblioteca.</p>
+        <img src="libro3.jpg" alt="Portada del Libro Destacado 3">
+        <button class="btn review-btn" onclick="mostrarResena('Libro Destacado 3')">Reseña</button> 
+    </div>
+
+    <!-- Campo de búsqueda y botón de búsqueda -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar libro por título">
+        <button class="btn search-btn" id="searchButton">Buscar</button>
+        <button class="btn search-btn" id="resetButton">Restablecer Lista</button>
+    </div>
+
+    <!-- Galería de imágenes -->
+    <div class="image-gallery">
+        <img id="gallery-image" src="https://www.nationalgeographic.com.es/medio/2022/04/23/libros_b2d310d5_1280x852.jpg" alt="Imagen de la galería" class="modern-style">
+        <div class="image-indicators">
+            <span class="image-indicator" onclick="showImage(0)"></span>
+            <span class="image-indicator" onclick="showImage(1)"></span>
+            <span class="image-indicator" onclick="showImage(2)"></span>
         </div>
     </div>
 
-    <!-- Personaje interactivo -->
-    <div id="character"></div>
+    <!-- Formulario de usuario -->
+    <div class="user-form">
+        <h2>¡Bienvenido!</h2>
+        <p>Ingresa tu nombre para personalizar tu experiencia:</p>
+        <input type="text" id="userName" placeholder="Tu nombre">
+        <button class="btn" onclick="mostrarMensajePersonalizado()">Enviar</button>
+        <p class="user-message" id="userWelcomeMessage"></p>
+    </div>
 
-    <script>
+    <!-- Botones para mostrar/ocultar categorías y autores destacados -->
+    <button class="btn" id="showCategories">Mostrar Categorías</button>
+    <button class="btn" id="showAuthors">Mostrar Autores Destacados</button>
+    
+    <!-- Sección de categorías (inicialmente oculta) -->
+    <div class="categories">
+        <h2>Categorías de Libros</h2>
+        <ul>
+            <li>Ficción</li>
+            <li>No ficción</li>
+            <li>Ciencia</li>
+            <li>Cocina</li>
+            <!-- Agrega más categorías aquí... -->
+        </ul>
+    </div>
+
+    <!-- Sección de autores destacados (inicialmente oculta) -->
+    <div class="featured-authors">
+        <h2>Autores Destacados</h2>
+        <ul>
+            <li>Jane Austen</li>
+            <li>George Orwell</li>
+            <li>J.K. Rowling</li>
+            <li>Stephen King</li>
+            <!-- Agrega más autores aquí... -->
+        </ul>
+    </div>
+</div>
+
+<!-- Juegos educativos -->
+<div class="games-container">
+    <h2>Juegos Educativos</h2>
+    <p>Aprende a leer y diviértete con nuestros juegos interactivos:</p>
+    <ul>
+        <li><a href="crucigrama.html">Crucigrama Mágico</a></li>
+        <li><a href="sopa-de-letras.html">Sopa de Letras Encantada</a></li>
+        <!-- Agrega más juegos aquí... -->
+    </ul>
+</div>
+
+<!-- Personaje interactivo -->
+<div id="character"></div>
+
+<script>
+    // Función para mover el personaje hacia la izquierda con parpadeo
+    function moveLeft() {
         const character = document.getElementById('character');
-
-        // Función para mover el personaje hacia la izquierda
-        function moveLeft() {
+        character.style.animation = 'blink 0.3s infinite';
+        setTimeout(() => {
+            character.style.animation = '';
             character.style.transform = 'translateX(-10px)';
-        }
+        }, 300);
+    }
 
-        // Función para mover el personaje hacia la derecha
-        function moveRight() {
+    // Función para mover el personaje hacia la derecha con parpadeo
+    function moveRight() {
+        const character = document.getElementById('character');
+        character.style.animation = 'blink 0.3s infinite';
+        setTimeout(() => {
+            character.style.animation = '';
             character.style.transform = 'translateX(10px)';
+        }, 300);
+    }
+
+    // Agregar eventos de clic para mover el personaje
+    const character = document.getElementById('character');
+    character.addEventListener('click', moveLeft);
+    character.addEventListener('contextmenu', function (event) {
+        event.preventDefault(); // Evita el menú contextual al hacer clic derecho
+        moveRight();
+    });
+</script>
+
+<script>
+    let clickCount = 0;
+
+    // Función para mostrar una alerta con la reseña del libro y contar los clics
+    function mostrarResena(libro) {
+        clickCount++;
+        alert("Reseña del libro: " + libro + "\nNúmero de clics en reseña: " + clickCount);
+    }
+</script>
+
+<script>
+    const body = document.body;
+    let isBackgroundDark = false;
+
+    body.addEventListener('click', () => {
+        isBackgroundDark = !isBackgroundDark;
+        body.style.backgroundColor = isBackgroundDark ? '#ffc107' : '#f4f4f4';
+    });
+</script>
+
+<script>
+    function mostrarMensajePersonalizado() {
+        const userName = document.getElementById("userName").value;
+        const userMessageElement = document.getElementById("userWelcomeMessage");
+
+        if (userName.trim() === "") {
+            userMessageElement.textContent = "Por favor, ingresa un nombre válido.";
+        } else {
+            userMessageElement.textContent = `¡Hola, ${userName}! Bienvenido a nuestra biblioteca mágica.`;
         }
+    }
+</script>
 
-        // Agregar eventos de clic para mover el personaje
-        character.addEventListener('click', moveLeft);
-        character.addEventListener('contextmenu', function (event) {
-            event.preventDefault(); // Evita el menú contextual al hacer clic derecho
-            moveRight();
-        });
-    </script>
+<script>
+    const images = ["https://www.nationalgeographic.com.es/medio/2022/04/23/libros_b2d310d5_1280x852.jpg", "https://img.freepik.com/vector-premium/nino-leyendo-libro-sentado-muchos-libros_59690-72.jpg?w=826", "https://www.avancepsicologos.com/wp-content/uploads/2020/05/los-10-mejores-libros-de-desarrollo-personal-768x576.jpg"];
+    let currentImageIndex = 0;
 
-    <script>
-        // Función para mostrar una alerta con la reseña del libro
-        function mostrarResena(libro) {
-            alert("Reseña del libro: " + libro);
-        }
-    </script>
+    // Función para mostrar la imagen correspondiente al índice
+    function showImage(index) {
+        currentImageIndex = index;
+        const imageElement = document.getElementById("gallery-image");
+        imageElement.src = images[currentImageIndex];
 
-    <script>
-        const body = document.body;
-        let isBackgroundDark = false;
-
-        body.addEventListener('click', () => {
-            isBackgroundDark = !isBackgroundDark;
-            body.style.backgroundColor = isBackgroundDark ? '#333' : '#f4f4f4';
-        });
-    </script>
-
-    <script>
-        let clickCount = 0;
-
-        function mostrarResena(libro) {
-            clickCount++;
-            alert("Reseña del libro: " + libro + "\nNúmero de clics en reseña: " + clickCount);
-        }
-    </script>
-
-    <script>
-        function mostrarMensajePersonalizado() {
-            const nombre = prompt("Por favor, ingresa tu nombre:");
-            if (nombre) {
-                alert("Hola, " + nombre + "! Bienvenido a nuestra biblioteca didáctica.");
+        // Actualizar la clase "active" en los indicadores de puntos
+        const indicators = document.querySelectorAll(".image-indicator");
+        indicators.forEach((indicator, i) => {
+            if (i === index) {
+                indicator.classList.add("active");
+            } else {
+                indicator.classList.remove("active");
             }
-        }
-    </script>
+        });
+    }
 
+    // Mostrar la primera imagen al cargar la página
+    showImage(0);
+
+    // Cambiar automáticamente la imagen de la galería cada 4 segundos
+    setInterval(showNextImage, 4000);
+
+    // Función para mostrar la siguiente imagen en la galería
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        showImage(currentImageIndex);
+    }
+</script>
+
+<!-- Agregar funcionalidad de búsqueda de libros -->
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const books = document.querySelectorAll('.book');
+
+    searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+        books.forEach(book => {
+            const bookTitle = book.querySelector('h2').textContent.toLowerCase();
+            if (bookTitle.includes(searchTerm)) {
+                book.style.display = 'block';
+            } else {
+                book.style.display = 'none';
+            }
+        });
+    });
+
+    // Agregar funcionalidad para restablecer la lista de libros
+    const resetButton = document.getElementById('resetButton');
+
+    resetButton.addEventListener('click', () => {
+        books.forEach(book => {
+            book.style.display = 'block';
+        });
+        searchInput.value = ''; // Borrar el contenido del campo de búsqueda
+    });
+</script>
+
+<!-- Script para mostrar/ocultar categorías y autores destacados con transiciones -->
+<script>
+    const showCategoriesButton = document.getElementById('showCategories');
+    const showAuthorsButton = document.getElementById('showAuthors');
+    const categoriesSection = document.querySelector('.categories');
+    const authorsSection = document.querySelector('.featured-authors');
+
+    // Función para mostrar la sección de categorías con transición suave
+    showCategoriesButton.addEventListener('click', () => {
+        categoriesSection.style.display = 'block';
+        setTimeout(() => {
+            categoriesSection.style.opacity = '1';
+        }, 100);
+    });
+
+    // Función para mostrar la sección de autores destacados con transición suave
+    showAuthorsButton.addEventListener('click', () => {
+        authorsSection.style.display = 'block';
+        setTimeout(() => {
+            authorsSection.style.opacity = '1';
+        }, 100);
+    });
+</script>
 </body>
 </html>
+
+
