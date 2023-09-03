@@ -4,37 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca Mágica</title>
+    <!-- Enlace a la hoja de estilo CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Fuente+Personalizada" rel="stylesheet">
 </head>
 <body>
     <header>
         <h1>Biblioteca Mágica</h1>
     </header> 
 
-
     <main class="container"> 
-        
         <section class="profile-selection"> 
-
             <h2>Selecciona tu perfil</h2>
-        <div class="profile" onclick="elegirPerfil('perfil1')">
-            <div class="profile-content">
-                <img src="https://asteliona.files.wordpress.com/2018/07/b5a9a41c99118629fff702be487b507c.jpg?w=2000&h=&crop=1" alt="Avatar 1">
-                <p>Yeneirys</p> <!-- Texto del perfil -->
+            <div class="profile" onclick="elegirPerfil('perfil1')">
+                <div class="profile-content">
+                    <img src="https://asteliona.files.wordpress.com/2018/07/b5a9a41c99118629fff702be487b507c.jpg?w=2000&h=&crop=1" alt="Avatar 1">
+                    <p>Yeneirys</p> <!-- Texto del perfil -->
+                </div>
             </div>
-        </div>
-        <div class="profile" onclick="elegirPerfil('perfil2')">
-            <div class="profile-content">
-                <img src="https://asteliona.files.wordpress.com/2018/07/74fbd93300f0c856c68cfcc89b342744-princess-charlotte-frog-princess.jpg?w=2000&h=&crop=1" alt="Avatar 2">
-                <p>Rosmira</p> <!-- Texto del perfil -->
+            <div class="profile" onclick="elegirPerfil('perfil2')">
+                <div class="profile-content">
+                    <img src="https://asteliona.files.wordpress.com/2018/07/74fbd93300f0c856c68cfcc89b342744-princess-charlotte-frog-princess.jpg?w=2000&h=&crop=1" alt="Avatar 2">
+                    <p>Rosmira</p> <!-- Texto del perfil -->
+                </div>
             </div>
-        </div>
-    </section>
-
-     
+        </section>
     
-    
-        
         <!-- Contenido de la biblioteca -->
         <section class="library" id="librarySection" style="display: none;">
             <h2>Nuestra Biblioteca</h2>
@@ -44,6 +40,11 @@
         </section> 
     </main>
     
+    <!-- Enlace a los archivos JavaScript de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
+    
     <script src="script.js"></script>
 </body>
 </html>
+

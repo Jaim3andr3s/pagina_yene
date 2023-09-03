@@ -124,3 +124,37 @@ footer {
     background-color: #333; /* Cambiar el color de fondo del footer a gris oscuro */
     color: #fff; /* Cambiar el color del texto del footer a blanco */
 }
+
+/* Estilo para todos los títulos <h2> en tu sitio */
+/* Estilo inicial del título */
+h2 {
+    font-family: 'Fuente Personalizada', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    transition: color 0.3s ease; /* Agrega una transición de color suave */
+}
+
+/* Cambia el color cuando se pasa el cursor sobre el título */
+h2:hover {
+    color: #0078d4; /* Cambia el color cuando el cursor está sobre el título */
+}
+
+/* Estilos para los títulos de los libros */
+.book-title {
+    font-size: 18px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Color de texto */
+    /* Otros estilos que desees agregar */
+}
+
+/* Establecer la transición de opacidad para las portadas */
+.book-cover { 
+    max-width: 150px; /* Ancho máximo de la portada */
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.book-cover:hover {
+    transform: scale(1.1) rotate(5deg);
+}

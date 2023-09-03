@@ -19,7 +19,7 @@ function agregarLibrosAlPerfil(perfil) {
     if (perfil === 'perfil1') {
         const librosPerfil1 = [
             {
-                titulo: 'El hipo del tucán',
+                titulo: 'EL HIPO DEL TUCAN',
                 pdfUrl: 'https://drive.google.com/file/d/1cNmpawdm3rLUtuHxxHfMG64zARposf1G/view?usp=drive_link', // Reemplaza esto con la URL correcta
                 portadaUrl: 'https://mobbyt.com/media/gallery/44f11ea12f297cf0a9acfce336dca2f1/12c974f2_2021-06-07.png'
             },
@@ -35,23 +35,46 @@ function agregarLibrosAlPerfil(perfil) {
 
         librosPerfil1.forEach(libro => {
             const li = document.createElement('li');
-             // Agregar la imagen de la portada como enlace al PDF
             const a = document.createElement('a');
+            
+            // Contenedor principal para el libro (imagen y texto)
+            const container = document.createElement('div');
+            container.classList.add('book-container');
+            
+            // Agregar la imagen de la portada como enlace al PDF
             const img = document.createElement('img');
             img.src = libro.portadaUrl;
-            a.appendChild(img);
             a.href = libro.pdfUrl;
-            a.target = '_blank'; // Abre el enlace en una nueva ventana/tabla 
-
+            a.target = '_blank'; // Abre el enlace en una nueva ventana/tabla
+            
+            // Contenedor para el texto del libro
+            const textContainer = document.createElement('div');
+            textContainer.classList.add('book-text-container');
             
             const titulo = document.createElement('p');
             titulo.textContent = libro.titulo;
-
+            
+            // Configurar el evento mouseover para mostrar el texto
+            container.addEventListener('mouseover', () => {
+                textContainer.style.opacity = '1'; // Muestra el texto al pasar el mouse
+            });
+            
+            // Configurar el evento mouseout para ocultar el texto
+            container.addEventListener('mouseout', () => {
+                textContainer.style.opacity = '0'; // Oculta el texto al quitar el mouse
+            });
+            
+            textContainer.appendChild(titulo);
+            container.appendChild(img);
+            container.appendChild(textContainer);
+            a.appendChild(container);
+            
             li.appendChild(a);
-            li.appendChild(titulo);
             bookList.appendChild(li);
         });
-
+        
+        
+        
     } else if (perfil === 'perfil2') {
         const librosPerfil2 = [
             {
