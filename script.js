@@ -15,13 +15,13 @@ function agregarLibrosAlPerfil(perfil) {
     // Limpiar la lista de libros actual
     const bookList = document.getElementById('bookList');
     bookList.innerHTML = '';
-
     // Agregar libros según el perfil seleccionado
     if (perfil === 'perfil1') {
         const librosPerfil1 = [
             {
                 titulo: 'El hipo del tucán',
-                pdfUrl: 'https://drive.google.com/file/d/1cNmpawdm3rLUtuHxxHfMG64zARposf1G/view?usp=drive_link' // Reemplaza esto con la URL correcta
+                pdfUrl: 'https://drive.google.com/file/d/1cNmpawdm3rLUtuHxxHfMG64zARposf1G/view?usp=drive_link', // Reemplaza esto con la URL correcta
+                portadaUrl: 'https://mobbyt.com/media/gallery/44f11ea12f297cf0a9acfce336dca2f1/12c974f2_2021-06-07.png'
             },
             {
                 titulo: 'Libro 2',
@@ -35,11 +35,20 @@ function agregarLibrosAlPerfil(perfil) {
 
         librosPerfil1.forEach(libro => {
             const li = document.createElement('li');
+             // Agregar la imagen de la portada como enlace al PDF
             const a = document.createElement('a');
-            a.textContent = libro.titulo;
+            const img = document.createElement('img');
+            img.src = libro.portadaUrl;
+            a.appendChild(img);
             a.href = libro.pdfUrl;
-            a.target = '_blank'; // Abre el enlace en una nueva ventana/tabla
+            a.target = '_blank'; // Abre el enlace en una nueva ventana/tabla 
+
+            
+            const titulo = document.createElement('p');
+            titulo.textContent = libro.titulo;
+
             li.appendChild(a);
+            li.appendChild(titulo);
             bookList.appendChild(li);
         });
 
