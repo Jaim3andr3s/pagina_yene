@@ -61,8 +61,8 @@ function agregarLibrosAlPerfil(perfil) {
                 pdfUrl: 'ruta_al_archivo_pdf_del_libro8.pdf'
             },
             {
-                titulo: 'Libro 9',
-                pdfUrl: 'ruta_al_archivo_pdf_del_libro9.pdf'
+                titulo: 'Juego de Biblioteca', // Cambié el título del libro por "Juego de Biblioteca"
+                pdfUrl: 'ruta_al_juego_de_biblioteca.html' // Reemplaza con la URL del juego de biblioteca
             }
         ];
     }
@@ -109,3 +109,4 @@ function agregarLibrosAlPerfil(perfil) {
         bookList.appendChild(li);
     });
 }
+
